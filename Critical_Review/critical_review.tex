@@ -3,11 +3,14 @@
 % -- PAGE & MARGIN SETUP -- %
 \usepackage[margin=2cm]{geometry} % 2cm margins as required
 \usepackage{fancyhdr}
-\usepackage{lastpage} % for page x of y if needed
 \usepackage{setspace}
 \usepackage[scaled=1.0]{helvet} % Sans-serif font
 \renewcommand{\familydefault}{\sfdefault} % Sans-serif default
-\usepackage[hidelinks]{hyperref}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{MyLightBlue}{RGB}{66, 133, 244} 
+
+\usepackage[colorlinks=true, citecolor=MyLightBlue]{hyperref}
 
 % -- FONT SIZE & SPACING -- %
 \setstretch{1.0}           % single spacing
@@ -39,33 +42,34 @@
 
 \section*{Summary}
 
-The paper "Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs" \cite{Tong2024CVPR} investigates a siginificant challenge faced by multimodal large language models (MLLMs): they often fail to accurately detect low-level, straightforward visual details.
+The paper "Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs" \cite{Tong2024CVPR} investigates a significant challenge faced by multimodal large language models (MLLMs): they often fail to accurately detect low-level, straightforward visual details.
 The authors highlight a vulnerability where the reliance on vision encoders employed in MLLMs and that are pre-trained with contrastive language-image learning (e.g. CLIP \cite{Radford2021ICML}) have a tendency to gloss over small but significiant details and patterns. These include object count, orientation, colour and other such fine-grained features.
 
 In section 3 of "Eyes Wide Shut?", Tong et al. show (Figure 2) how they implement the concept of "Clip Blind Pairs", pairs of images that appear similar in CLIP's embedding space yet are distinct in the reference self-supervised model (DINOV2) \cite{Oquab2023DINOv2}.
 To address these issues, the authors go on to introduce the Multimodal Visual Patterns (MMVP) benchmark. Designed to test MLLMs on simple questions regarding paired images, their empirical results infer that simply scaling CLIP on larger training sets or model sizes does not inherently resolve these vulnerabilities.
 Furthermore, their Table 1 outlines that open-source variants like LLaVA-1.5 \cite{Liu2023Arxiv_LLaVA15}, also built on CLIP, fail to capture vital visual cues even when handling advanced reasioning tasks effectively.
 
-Finally, Tong et al. addresses these issues by proposing an innovative method "Mixture-of-Features" that integrates a purely self-supervised vision encoder (DINOv2 \cite{Oquab2023DINOv2}) with CLIP's language centric features. They go on to show that an additive fusion approach can sometimes degrade the model's ability, however a more sophisticated and nuanced
-interleaving of tokens approach, named "interleaved-MoF" sucessfully preserves high-level textual allignment whilst simulataneously imrpoving fine-grained detail recognition. Overall, the paper highlights a latent vulnerability in MLLMs and concludes by offering practical directions of building more detail-sensitive architectures and systems.
+Finally, Tong et al. address these issues by proposing an innovative method "Mixture-of-Features" that integrates a purely self-supervised vision encoder (DINOv2 \cite{Oquab2023DINOv2}) with CLIP's language centric features. They go on to show that an additive fusion approach can sometimes degrade the model's ability, however a more sophisticated and nuanced
+interleaving of tokens approach, named "interleaved-MoF" sucessfully preserves high-level textual alignment whilst simultaneously imrpoving fine-grained detail recognition. Overall, the paper highlights a latent vulnerability in MLLMs and concludes by offering practical directions of building more detail-sensitive architectures and systems.
 
 \section*{Relation to Other Work}
 
-In the ever-growing research area of MLLMs, early approaches in visual question answering (VQA) tended to solely focus on datasets like VQAv2 \cite{Goyal2017CVPR} or similarly, Visual Genome \cite{Krishna2017IJCV_VisualGenome}, which implemented multi-step reasoning but more often than not failed to isolate subtle visual discrepencies.
-More cutting-edge architectures like Winoground \cite{Thrush2022CVPR_Winoground} and MM-Vet \cite{Yu2023Arxiv_MMVet} emphasised intergrated and compositional capabilities, showcasing that tasks requireing precise attribute recognition is not always feesible even in advanced systems.
-
-Li et al. go beyong standard benchmarks in their seminal paper \cite{Li2023Arxiv_POPE} by analysing and measuring how often a model percieves objects that are not actually present. This provides an interesting parallel to the "Eyes Wide Shut" demonstration of hallucinated details or missed crucial features.
+In the ever-growing research area of MLLMs, early approaches in visual question answering (VQA) tended to solely focus on datasets like VQAv2 \cite{Goyal2017CVPR} or similarly, Visual Genome \cite{Krishna2017IJCV_VisualGenome}, which implemented multi-step reasoning but more often than not failed to isolate subtle visual discrepancies.
+More cutting-edge architectures like Winoground \cite{Thrush2022CVPR_Winoground} and MM-Vet \cite{Yu2023Arxiv_MMVet} emphasised integrated and compositional capabilities, showcasing that tasks requiring precise attribute recognition is not always feasible even in advanced systems.
+Li et al. go beyong standard benchmarks in their paper "Evaluating object hallucination in large vision-language models" \cite{Li2023Arxiv_POPE}, by analysing and measuring how often a model percieves objects that are not actually present. This provides an interesting parallel to the "Eyes Wide Shut" demonstration of hallucinated details or missed crucial features.
 
 Self-supervised learning in vision has recently seen rapid advancements spearheaded by architectures like DINOv2 \cite{Oquab2023DINOv2} and Masked Autoencoders (MAE) \cite{He2022CVPR_MAE}. 
 Tong et al. goes on to extend this research area by demonstrating how the CLIP architecture, despite its early sucesses in areas like zero-shot classification, crucially misinterprets details when asked relatviely straightforward visual questions.
 This further embues how "bridging methods" such as "Interleaved-Mof", could be paramount in improving and further driving the text driven nature of CLIP-based encoders.
 
 \section*{Strengths of the Paper}
-One of the paper's major strengths is its \emph{clarity of scope}. Rather than conflating language-based reasoning with underlying visual perception, Tong et al.\ systematically design minimal, unambiguous queries that require accurate local grounding. By enumerating nine distinct visual patterns in MMVP, they provide a thorough classification of where models fail---be it orientation, viewpoint, or colour distinction.
 
-Additionally, the \emph{empirical breadth} of their evaluation is commendable. They test GPT-4V \cite{OpenAI2023GPT4} and popular open-source models like LLaVA on their benchmark, showing that even the most sophisticated methods can falter on trivial image comparisons. As a result, the study convincingly dismisses the notion that ``bigger training sets alone'' will always solve these mistakes. The directness of their ``CLIP-blind pairs'' test offers insight into the actual root cause: CLIP's embedding space lumps visually dissimilar images together, forcing subsequent language models to guess.
+Tong et al. provide a systematic and controlled way of investigating detailed visual understanding through creating the MMVP bechmark from "CLIP-blind pairs". Systematic failures in misreading orientation or miscounting objects could be now identified, that would otherwise remain latent in broader tasks \cite{Tong2024CVPR}.
+Furthermore, one of the paper's  most compelling strengths is its comprehensive empirical analysis. They test GPT-4V \cite{OpenAI2023GPT4} and other popular open-source models like LLaVA-1.5 \cite{Liu2023Arxiv_LLaVA15} on their benchmark and measuring the performance on human baselines. These results are clearly presented in Section 2.3 and Figure 3, wherein each model's shortfalls are demonstrated by specific question examples.
+Moreover, when the models dip below random-guess accuracy on straightforward questions, the direct comparison with human responses highlights the importance of the identified weaknesses.
 
-Perhaps the most impactful contribution is the Mixture-of-Features framework. Their experiments on ``Additive-MoF'' demonstrate that directly adding a self-supervised model's features can improve detail recognition but harm text alignment. The alternative, ``Interleaved-MoF,'' exemplifies \emph{innovation} in how to weave separate encoders together effectively, illustrating a path for bridging ``local detail'' and ``global semantic'' features.
+The innovative Mixture-of-Features approach, perhaps, is the most impactful contribution from the paper. By combining two cutting-edge systems, CLIP \cite{Radford2021ICML} and a self-supervised vision model, DINOv2 \cite{Oquab2023DINOv2}, and by interleaving their features they demonstrated measurable progress in visual grounding whilst keeping instruction-following capacity.
+Their results garner momentum for future MLLM optimisation, balancing improvded visual understanding with textual alignment.
 
 \section*{Weaknesses of the Paper}
 Despite its clear merits, the paper has several limitations. Firstly, although ImageNet and LAION-based datasets are widespread, the authors do not show whether CLIP-blind pairs appear similarly in specialised domains, such as medical or aerial imagery. Past research on region-based detection suggests that local detail can vary hugely in domains where objects are partially occluded or highly repetitive \cite{Girshick2014CVPR}. Hence, verifying that these errors generalise to narrower use-cases would further strengthen the paper's claim of a ubiquitous phenomenon.
@@ -86,23 +90,24 @@ An equally promising line of inquiry is \emph{diagnosing the precise roots of CL
 In summary, ``Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs'' illuminates a significant gap in current vision-language paradigms: while global semantics are well captured, local details are not. By compiling a benchmark that exposes these blind spots and proposing a straightforward albeit computationally heavier fix, the authors make a compelling case that future MLLMs need more balanced, detail-oriented training. The paper's work thus stands as a timely reminder that continuing to escalate dataset size and model scale will not suffice to overcome fundamental representation issues. Instead, combining purely visual (self-supervised) and language-aligned approaches in a more structured, interpretability-conscious manner appears the most promising route to bridging the gap between robust local perception and fluent linguistic output.
 
 % -- REFERENCES -- %
-\begin{thebibliography}{10}
+\begin{small}
+\begin{thebibliography}{9}
     \setlength{\itemsep}{0.1em}  
     \setlength{\parskip}{0pt}     
 
         \bibitem{Tong2024CVPR}
         S.~Tong \emph{et al.},
-        ``Eyes wide shut? Exploring the visual...''
+        ``Eyes wide shut? Exploring the visual shortcomings of multimodal LLMs''
         in \emph{CVPR}, 2024.
         
         \bibitem{Radford2021ICML}
         A.~Radford \emph{et al.},
-        ``Learning transferable visual models...''
+        ``Learning transferable visual models from natural language supervision''
         in \emph{ICML}, 2021.
 
         \bibitem{Oquab2023DINOv2}
         M.~Oquab \emph{et al.},
-        ``DINOv2: learning robust visual features...''
+        ``DINOv2: learning robust visual features without supervision''
         \emph{arXiv:2304.07193}, 2023.
 
         \bibitem{Liu2023Arxiv_LLaVA15}
@@ -117,22 +122,22 @@ In summary, ``Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LL
 
         \bibitem{Krishna2017IJCV_VisualGenome}
         R.~Krishna \emph{et al.},
-        ``Visual genome: connecting language and vision using...''
+        ``Visual genome: connecting language and vision using crowdsourced dense image annotations''
         \emph{IJCV}, 2017.
 
         \bibitem{Thrush2022CVPR_Winoground}
         T.~Thrush \emph{et al.},
-        ``Winoground: probing vision and language models for...''
+        ``Winoground: probing vision and language models for visio-linguistic compositionality''
         in \emph{CVPR}, 2022.
 
         \bibitem{Yu2023Arxiv_MMVet}
         W.~Yu \emph{et al.},
-        ``MM-Vet: evaluating large multimodal models for integrated...''
+        ``MM-Vet: evaluating large multimodal models for integrated capabilities''
         \emph{arXiv:2308.02490}, 2023.
 
         \bibitem{Li2023Arxiv_POPE}
         Y.~Li \emph{et al.},
-        ``Evaluating object hallucination in large vision-language...''
+        ``Evaluating object hallucination in large vision-language models''
         \emph{arXiv:2305.10355}, 2023.
             
         \bibitem{He2022CVPR_MAE}
@@ -152,5 +157,6 @@ In summary, ``Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LL
         
         
 \end{thebibliography}
+\end{small}
     
 \end{document}
