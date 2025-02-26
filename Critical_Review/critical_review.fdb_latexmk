@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1740575281.66444 "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" "critical_review.pdf" "critical_review" 1740575282.18102 0
-  "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" 1740575281.40843 11021 c95824cbc3b61be422d4023d61773ba1 ""
+["pdflatex"] 1740605691.3316 "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" "critical_review.pdf" "critical_review" 1740605691.88861 0
+  "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" 1740605691.09234 10517 af85644beb8f3b2886cd8bb5356a156e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -56,15 +56,16 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/setspace/setspace.sty" 1670275497 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty" 1698436711 48766 0b93839be28e9744a24c45075c75b2e2 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty" 1686341992 32515 51caec75eda9c8890135f12f1a4eddc3 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1739756672.69038 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1739756661 8221424 ee5c6f5268ea6fc883f2bac59ed6ff1c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "critical_review.aux" 1740575282.14651 1134 5bfa9aeb82ce2fdf583022c7d5a304ba "pdflatex"
-  "critical_review.out" 1740575281.99803 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "critical_review.tex" 1740575281.40843 11021 c95824cbc3b61be422d4023d61773ba1 ""
+  "critical_review.aux" 1740605691.85051 758 934a2031b13ca853c531426042e429ae "pdflatex"
+  "critical_review.out" 1740605691.69892 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "critical_review.tex" 1740605691.09234 10517 af85644beb8f3b2886cd8bb5356a156e ""
   (generated)
   "critical_review.aux"
   "critical_review.log"
