@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.17)  25 FEB 2025 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.17)  26 FEB 2025 01:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -297,30 +297,25 @@ LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
  [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 ]
-
-LaTeX Warning: Citation `Girshick2014CVPR' on page 2 undefined on input line 75.
-
-
-LaTeX Warning: Citation `Devlin2019NAACL_BERT' on page 2 undefined on input line 77.
-
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 79.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 86.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.95pt on input line 79.
-
-LaTeX Warning: Citation `Girshick2014CVPR' on page 2 undefined on input line 88.
+(Font)              scaled to size 10.95pt on input line 86.
 
 
-LaTeX Warning: Citation `Lin2017CVPR_FPN' on page 2 undefined on input line 88.
+LaTeX Warning: Citation `Li2023ICML_BLIP2' on page 2 undefined on input line 88.
 
 
-LaTeX Warning: Citation `Devlin2019NAACL_BERT' on page 2 undefined on input line 88.
+LaTeX Warning: Citation `Lin2017CVPR_FPN' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `Devlin2019NAACL_BERT' on page 2 undefined on input line 90.
 
 [2]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 99.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 101.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 101.
  [3] (./critical_review.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -342,10 +337,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,983b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on critical_review.pdf (3 pages, 44773 bytes).
+Output written on critical_review.pdf (3 pages, 44045 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  16 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

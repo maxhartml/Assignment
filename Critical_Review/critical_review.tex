@@ -45,7 +45,7 @@
 The paper "Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs" \cite{Tong2024CVPR} investigates a significant challenge faced by multimodal large language models (MLLMs): they often fail to accurately detect low-level, straightforward visual details.
 The authors highlight a vulnerability where the reliance on vision encoders employed in MLLMs and that are pre-trained with contrastive language-image learning (e.g. CLIP \cite{Radford2021ICML}) have a tendency to gloss over small but significiant details and patterns. These include object count, orientation, colour and other such fine-grained features.
 
-In section 3 of "Eyes Wide Shut?", Tong et al. show (Figure 2) how they implement the concept of "Clip Blind Pairs", pairs of images that appear similar in CLIP's embedding space yet are distinct in the reference self-supervised model (DINOV2) \cite{Oquab2023DINOv2}.
+In section 3 of "Eyes Wide Shut?", Tong et al. show (Figure 2) how they implement the concept of "Clip-blind pairs", pairs of images that appear similar in CLIP's embedding space yet are distinct in the reference self-supervised model (DINOV2) \cite{Oquab2023DINOv2}.
 To address these issues, the authors go on to introduce the Multimodal Visual Patterns (MMVP) benchmark. Designed to test MLLMs on simple questions regarding paired images, their empirical results infer that simply scaling CLIP on larger training sets or model sizes does not inherently resolve these vulnerabilities.
 Furthermore, their Table 1 outlines that open-source variants like LLaVA-1.5 \cite{Liu2023Arxiv_LLaVA15}, also built on CLIP, fail to capture vital visual cues even when handling advanced reasioning tasks effectively.
 
@@ -72,15 +72,17 @@ The innovative Mixture-of-Features approach, perhaps, is the most impactful cont
 Their results garner momentum for future MLLM optimisation, balancing improvded visual understanding with textual alignment.
 
 \section*{Weaknesses of the Paper}
-Despite its clear merits, the paper has several limitations. Firstly, although ImageNet and LAION-based datasets are widespread, the authors do not show whether CLIP-blind pairs appear similarly in specialised domains, such as medical or aerial imagery. Past research on region-based detection suggests that local detail can vary hugely in domains where objects are partially occluded or highly repetitive \cite{Girshick2014CVPR}. Hence, verifying that these errors generalise to narrower use-cases would further strengthen the paper's claim of a ubiquitous phenomenon.
 
-Secondly, the authors only briefly address the underlying cause of these CLIP oversights, beyond pointing out that scaling fails to fix them. Are these errors purely a function of training data distribution, architectural biases, or the nature of contrastive objectives \cite{Radford2021ICML}? While they show that a second encoder (DINOv2) helps, a deeper interpretability analysis might have uncovered which layers or attention heads systematically miss local patterns, paralleling the approach taken in some large language model interpretability studies \cite{Devlin2019NAACL_BERT}. Such insight would help the field move beyond trial-and-error solutions toward fundamentally robust pre-training schemes.
+Despite its rigorous methodology, the paper ultimately leaves a few important gaps. First, while the authors demonstrate that missing crucial visual detail is not solved simply by making CLIP-based models larger in size or trained on enlarged datasets, they do not however thoroughly investigate alternative scaling methods.
+For instance, different training objectives or more specific fine-grained tasks might somewhat resolve these blind spots. Moreover, the Mixture-of-Features approach, while innovative and effective on the authors' benchmark, is left untested on interactive scenarios like dialogue-based instruction-following. Naturally, this leaves the reader to question its broader applicability on more complex tasks.
 
-Thirdly, although the Mixture-of-Features approach is elegant, it may be computationally \emph{expensive} in practice. Running two large encoders (CLIP plus DINOv2) would potentially double memory usage. There is relatively little discussion of any advanced optimisation, such as partial parameter freezing, knowledge distillation, or gating networks \cite{Li2023ICML_BLIP2}, that might reduce overhead. This could limit adoption in resource-constrained settings, where the extra cost of Interleaved-MoF might be prohibitive.
+Furthermore, the dataset primarily draws on images from ImageNet and LAION, leaving ambiguity on whether CLIP-blind pairs are created similarly in more specialised domains like medical or satelite imagery. Past research in region-based detection suggests local detail can greatly vary in domains where elements are partially occluded or repetitive \cite{Girshick2014CVPR}.
+Investigating these phenomenon in more domain specific contexts could further legitimise the paper's claim that such oversights are universal.
 
-Lastly, the paper's demonstration focuses heavily on single-step question-answer tasks. Real-world scenarios sometimes demand complex \emph{multi-step} reasoning, chaining multiple local details into a final answer. While the study's minimal queries admirably isolate local detail problems, it remains unclear whether these solutions also improve compositional tasks. Incorporating short user studies or more extended question contexts would provide a richer understanding of how these improvements translate to everyday usage.
+Finally, combining two large encoders (CLIP and DINOv2) can be expensive and there is relatively little discussion on potential mitigations, such as freezing layers or knowledge distilation that may reduce overhead. These issues may limit practical use in a resource-constrained setting and ultimately prohibit the deployment of an otherwise sophisticated approach.
 
 \section*{Potential Advancement and Future Work}
+
 Multiple directions emerge to build upon the findings of ``Eyes Wide Shut.'' One natural step is \emph{extending MMVP} into more specialised or high-stakes areas, such as medical imaging, autonomous driving, or fine-grained species identification. If CLIP-blind pairs appear in such settings, it would underscore an urgent need to re-calibrate or retrain vision encoders for safety-critical tasks.
 
 Further, the authors' ``Interleaved-MoF'' approach could evolve into a \emph{dynamic gating} mechanism, wherein the model learns to emphasise the self-supervised features only when local detail is particularly important. Past frameworks like BLIP-2 have hinted at balancing text alignment with vision modules \cite{Li2023ICML_BLIP2}, and a gating-based approach could unify these insights for robust but flexible fusion.
@@ -149,12 +151,11 @@ In summary, ``Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LL
         OpenAI,
         ``GPT-4 technical report,''
         Tech. Rep., 2023.
-        
-        \bibitem{Li2023ICML_BLIP2}
-        J.~Li \emph{et al.},
-        ``BLIP-2: bootstrapping language-image pre-training,''
-        in \emph{ICML}, 2023.
-        
+
+        \bibitem{Girshick2014CVPR}
+        R. ~Girshick \emph{et al.},
+        ``Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation,''
+        in \emph{CVPR}, 2014
         
 \end{thebibliography}
 \end{small}

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1740524571.66751 "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" "critical_review.pdf" "critical_review" 1740524572.20275 0
-  "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" 1740524571.42822 13718 d227fffab0dba331c1300120ec79928e ""
+["pdflatex"] 1740534247.05336 "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" "critical_review.pdf" "critical_review" 1740534247.55306 0
+  "/Users/maxhart/Documents/MSc_AI_ML/Current_Topics/Assignment/Critical_Review/critical_review.tex" 1740534246.8456 13018 7c82645e0ef70183b07ed1f32dbcc094 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -66,9 +66,9 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1739756672.69038 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1739756661 8221424 ee5c6f5268ea6fc883f2bac59ed6ff1c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "critical_review.aux" 1740524572.16434 1253 5776864b304f0d6ea35222660a2d1576 "pdflatex"
-  "critical_review.out" 1740524572.00719 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "critical_review.tex" 1740524571.42822 13718 d227fffab0dba331c1300120ec79928e ""
+  "critical_review.aux" 1740534247.5181 1166 73729a9afa57b070a165a65129066935 "pdflatex"
+  "critical_review.out" 1740534247.36863 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "critical_review.tex" 1740534246.8456 13018 7c82645e0ef70183b07ed1f32dbcc094 ""
   (generated)
   "critical_review.aux"
   "critical_review.log"
