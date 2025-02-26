@@ -83,81 +83,32 @@ Finally, combining two large encoders (CLIP and DINOv2) can be expensive and the
 
 \section*{Potential Advancement and Future Work}
 
-Multiple directions emerge to build upon the findings of ``Eyes Wide Shut.'' One natural step is \emph{extending MMVP} into more specialised or high-stakes areas, such as medical imaging, autonomous driving, or fine-grained species identification. If CLIP-blind pairs appear in such settings, it would underscore an urgent need to re-calibrate or retrain vision encoders for safety-critical tasks.
+There are multiple avenues to explore that further build upon the current findings of "Eyes Wide Shut" \cite{Tong2024CVPR}. A promising such one is to extend the MMVP benchmark into more specialised domains, such as medical imaging or autonomous driving, where missed details could be critical. If CLIP-blind pairs exist in such settings, it would emphasise the neccesity to re-calibrate visual encoders for more safety-orientated tasks.
+Moreover, another interesting avenue of research is to build Mixture-of-Features into a more dynamic system. Similarly of how BLIP-2 \cite{Li2023ICML_BLIP2} balances both text alignment with vision modules, the "Interleaved-MoF" model could learn to "gate" self-supervised features only when more local detail is increasingly important. Potentially, this could reduce overhead of simultaneously running two large encoders, by combining fine-grained recognition with more efficient high-level reasoning and understanding.
 
-Further, the authors' ``Interleaved-MoF'' approach could evolve into a \emph{dynamic gating} mechanism, wherein the model learns to emphasise the self-supervised features only when local detail is particularly important. Past frameworks like BLIP-2 have hinted at balancing text alignment with vision modules \cite{Li2023ICML_BLIP2}, and a gating-based approach could unify these insights for robust but flexible fusion.
-
-An equally promising line of inquiry is \emph{diagnosing the precise roots of CLIP's failure}. Perhaps introducing local region objectives---akin to early region-based detection networks \cite{Girshick2014CVPR,Lin2017CVPR_FPN}---within the CLIP pipeline would highlight orientation or counting from the outset. Alternatively, training new vision-language models that explicitly integrate ``pixel-level'' self-supervision with textual alignment might preempt the need for post-hoc mixing. Finally, a deeper interpretability analysis, reminiscent of how large language model representations have been dissected \cite{Devlin2019NAACL_BERT}, could reveal whether any architectural modules within CLIP systematically disregard small objects or positional cues.
-
-In summary, ``Eyes Wide Shut? Exploring the Visual Shortcomings of Multimodal LLMs'' illuminates a significant gap in current vision-language paradigms: while global semantics are well captured, local details are not. By compiling a benchmark that exposes these blind spots and proposing a straightforward albeit computationally heavier fix, the authors make a compelling case that future MLLMs need more balanced, detail-oriented training. The paper's work thus stands as a timely reminder that continuing to escalate dataset size and model scale will not suffice to overcome fundamental representation issues. Instead, combining purely visual (self-supervised) and language-aligned approaches in a more structured, interpretability-conscious manner appears the most promising route to bridging the gap between robust local perception and fluent linguistic output.
+Finally, a deeper investigation to look "under the hood" of CLIP's failure may discover more targeted and surgical fixes. For instance, incorporating local region objectives in the pre-training phase (e.g R-CNN) may perhaps introduce some sensitivity to counting or orientation from the start, as opose to patching weaknesses later on. 
+Moreover, future architectural model designs may be refined using interpretibiltiy methods like attention rollout, which may help identify where in the network smaller details are lost.
+To summarise, Tong et al. make a convincing argument in favour of a balanced intergration of language-aligned and visual training is crucial for a robust and detailed-senstive MLLM.
 
 % -- REFERENCES -- %
 \begin{small}
-\begin{thebibliography}{9}
-    \setlength{\itemsep}{0.1em}  
-    \setlength{\parskip}{0pt}     
-
-        \bibitem{Tong2024CVPR}
-        S.~Tong \emph{et al.},
-        ``Eyes wide shut? Exploring the visual shortcomings of multimodal LLMs''
-        in \emph{CVPR}, 2024.
-        
-        \bibitem{Radford2021ICML}
-        A.~Radford \emph{et al.},
-        ``Learning transferable visual models from natural language supervision''
-        in \emph{ICML}, 2021.
-
-        \bibitem{Oquab2023DINOv2}
-        M.~Oquab \emph{et al.},
-        ``DINOv2: learning robust visual features without supervision''
-        \emph{arXiv:2304.07193}, 2023.
-
-        \bibitem{Liu2023Arxiv_LLaVA15}
-        H.~Liu \emph{et al.},
-        ``Improved baselines with visual instruction tuning,''
-        \emph{arXiv:2310.03744}, 2023.
-
-        \bibitem{Goyal2017CVPR}
-        Y.~Goyal \emph{et al.},
-        ``Making the V in VQA matter,''
-        in \emph{CVPR}, 2017.
-
-        \bibitem{Krishna2017IJCV_VisualGenome}
-        R.~Krishna \emph{et al.},
-        ``Visual genome: connecting language and vision using crowdsourced dense image annotations''
-        \emph{IJCV}, 2017.
-
-        \bibitem{Thrush2022CVPR_Winoground}
-        T.~Thrush \emph{et al.},
-        ``Winoground: probing vision and language models for visio-linguistic compositionality''
-        in \emph{CVPR}, 2022.
-
-        \bibitem{Yu2023Arxiv_MMVet}
-        W.~Yu \emph{et al.},
-        ``MM-Vet: evaluating large multimodal models for integrated capabilities''
-        \emph{arXiv:2308.02490}, 2023.
-
-        \bibitem{Li2023Arxiv_POPE}
-        Y.~Li \emph{et al.},
-        ``Evaluating object hallucination in large vision-language models''
-        \emph{arXiv:2305.10355}, 2023.
-            
-        \bibitem{He2022CVPR_MAE}
-        K.~He \emph{et al.},
-        ``Masked autoencoders are scalable vision learners,''
-        in \emph{CVPR}, 2022.
-        
-        \bibitem{OpenAI2023GPT4}
-        OpenAI,
-        ``GPT-4 technical report,''
-        Tech. Rep., 2023.
-
-        \bibitem{Girshick2014CVPR}
-        R. ~Girshick \emph{et al.},
-        ``Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation,''
-        in \emph{CVPR}, 2014
-        
-\end{thebibliography}
-\end{small}
+    \begin{thebibliography}{99}
+        \setlength{\itemsep}{0.1em}  
+        \setlength{\parskip}{0pt}     
+        \bibitem{Tong2024CVPR} S. Tong et al, CVPR, 2024.
+        \bibitem{Radford2021ICML} A. Radford et al, ICML, 2021.
+        \bibitem{Oquab2023DINOv2} M. Oquab et al, arXiv:2304.07193, 2023.
+        \bibitem{Liu2023Arxiv_LLaVA15} H. Liu et al, arXiv:2310.03744, 2023.
+        \bibitem{Goyal2017CVPR} Y. Goyal et al, CVPR, 2017.
+        \bibitem{Krishna2017IJCV_VisualGenome} R. Krishna et al, IJCV, 2017.
+        \bibitem{Thrush2022CVPR_Winoground} T. Thrush et al, CVPR, 2022.
+        \bibitem{Yu2023Arxiv_MMVet} W. Yu et al, arXiv:2308.02490, 2023.
+        \bibitem{Li2023Arxiv_POPE} Y. Li et al, arXiv:2305.10355, 2023.
+        \bibitem{He2022CVPR_MAE} K. He et al, CVPR, 2022.
+        \bibitem{OpenAI2023GPT4} OpenAI, GPT-4 technical report, 2023.
+        \bibitem{Girshick2014CVPR} R. Girshick et al, CVPR, 2014.
+        \bibitem{Li2023ICML_BLIP2} J. Li et al, ICML, 2023.
+    \end{thebibliography}
+    \end{small}
     
 \end{document}
