@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+% -- PAGE & MARGIN SETUP -- %
+\usepackage[margin=2cm]{geometry} % 2cm margins as required
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[colorlinks=true, citecolor=MyLightBlue]{hyperref}
+
+% -- FONT SETUP (using XeLaTeX for Arial) -- %
+\usepackage{fontspec}
+\setmainfont{Helvet}
+\renewcommand{\familydefault}{\sfdefault} % Sans-serif default
+
+% -- DEFINE CUSTOM COLOR -- %
+\definecolor{MyLightBlue}{RGB}{66, 133, 244}
+
+% -- HEADER/FOOTER SETUP -- %
+\pagestyle{fancy}
+\fancyhf{} % clear header and footer
+\fancyhead[L]{\small \textbf{Student ID: 2844622 \quad Module Code: 06 32257}}
+\fancyhead[R]{\small \textbf{Appendix A}}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+
+% -- SECTION TITLE ADJUSTMENTS -- %
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries\normalsize}{\thesection.}{1em}{}
+\titlespacing{\section}{0pt}{1.2\baselineskip}{0.8\baselineskip}
+
+% -- ENHANCED BOXES FOR DISCLOSURE TEXT -- %
+\usepackage{tcolorbox}
+\tcbset{
+  mybox/.style={
+    colback=white,
+    colframe=MyLightBlue,
+    boxrule=0.5pt,
+    arc=2mm,
+    auto outer arc,
+    left=2mm, right=2mm, top=2mm, bottom=2mm
+  }
+}
+
+% -- CUSTOMIZE ITEMIZE SPACING -- %
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=0pt}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\section*{Appendix A: Academic Integrity and Use of Generative AI}
+
+\begin{tcolorbox}[mybox]
+\textbf{Disclaimer Statement on Academic Integrity}
+
+“I hereby declare that the work presented in this submission is entirely my own original work. The critical review submitted herein reflects my own critical thinking and personal interpretation of the assigned research paper. I have not engaged in any form of plagiarism or misrepresentation of authorship.”
+\end{tcolorbox}
+
+\vspace{1em}
+
+% Uncomment the block below if you did not use any Generative AI:
+% \begin{tcolorbox}[mybox]
+% \textbf{No Generative AI Used:}
+%
+% “I acknowledge that this submission is entirely my own work and that I have not used any Generative AI tools in the writing process.”
+% \end{tcolorbox}
+
+\vspace{1em}
+
+\begin{tcolorbox}[mybox]
+\textbf{Reflection on the Use of Generative AI (If Applicable)}
+
+“I acknowledge that I have utilised generative AI tools solely as a supplemental resource during my writing process. In the reflection below, I provide details regarding:
+\begin{itemize}
+    \item \textit{How generative AI was used?} It was used to summarise long, complex research papers, as an educational tool to better understand advanced concepts, and to refine some of my original ideas.
+    \item \textit{The extent of its use?} It served as a tool to enhance research efficiency and deepen my understanding of complicated topics.
+    \item \textit{My own role in the final submission?} The final work represents my own original ideas and understanding. The formulation and wording are entirely my own.
+\end{itemize}
+I understand that while generative AI can serve as a valuable tool, it does not replace my own intellectual engagement. I accept full responsibility for all content presented and confirm that this submission is a true reflection of my own work.”
+\end{tcolorbox}
+
+\end{document}
